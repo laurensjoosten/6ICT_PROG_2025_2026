@@ -1,5 +1,6 @@
 def kwadraat(x):
     """ return het kwadraat van x """
+    return(x**2)
 
 
 print( kwadraat(3) )    # 9
