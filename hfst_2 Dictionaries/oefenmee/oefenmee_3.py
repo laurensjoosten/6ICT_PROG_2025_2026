@@ -4,3 +4,11 @@ persoonsinfo = { # info over een persoon
     "leeftijd": 32,
     "massa": 79
 }
+
+print(len(persoonsinfo))
+
+# oogkleur = persoonsinfo["oogkleur"]
+# print(f"Deze persoon heeft {oogkleur} ogen.")
+
+naam = "Jan"
+print(persoonsinfo[naam])
