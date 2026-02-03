@@ -15,3 +15,7 @@ landen_feiten = {
         'taal': 'Duits',
     }
 }
+
+for land, hoofdstad in landen_feiten.items():
+    print(f"De grootste stad in {land} ")
+    

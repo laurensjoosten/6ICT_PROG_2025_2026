@@ -11,3 +11,23 @@ Advies 3:
     Print || No advice slips found matching that search term.
 
 """
+
+import requests
+import json
+
+query = input("Topic for advice: ")
+
+
+url = f"https://api.adviceslip.com/advice/search/{query}"
+response = requests.get(url)
+respons_json = response.json()
+
+with open(r"hfst_4 API\opdrachten\vragen.json", "w") as fp:
+        json.dump(respons_json, fp)
+
+if "slips" in respons_json: 
+    advies = respons_json["slips"][0]["advice"]
+    print(advies)
+
+else:
+    print("No advice slips found matching that search term.")

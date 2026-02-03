@@ -19,3 +19,29 @@ Voorbeelden (CO2 uitstoot afgerond op 3 cijfers na de komma):
         Print || Geen geldige site opgegeven.
 
 """
+
+import requests
+import json
+
+website = input("Welke website opzoeken: ")
+
+
+url = f"https://api.websitecarbon.com/site?url={website}"
+
+try:
+    response = requests.get(url)
+    data = response.json()
+    with open(r"6ICT_PROG_2025_2026/hfst_4 API/oefenmee/co2_uitstoot_data.json", "w") as fp:
+        json.dump(response, fp)
+
+    
+    if "error" in data:
+        print("Geen geldige site opgegeven.")
+    else:
+        bytes = data["bytes"]
+        co2 = data["statistics"]["co2"]["gram"]   
+    
+        print(f"Deze website is {bytes} bytes groot, en veroorzaakt {co2} gram CO2 uitstoot.")
+
+except:
+    print("Geen geldige site opgegeven.")
